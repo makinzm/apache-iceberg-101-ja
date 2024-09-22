@@ -7,17 +7,23 @@
 docker compose up --build
 # Failed: https://github.com/lawofcycles/apache-iceberg-101-ja/issues/2
 
-[+] Running 1/1
- ✔ Network apache-iceberg-101-ja_iceberg_net  C...                                             0.1s
- ⠋ Container iceberg-rest                     Creating                                         0.0s
- ⠋ Container minio                            Creating                                         0.0s
-Error response from daemon: No such image: minio/minio:latest
+minio          |
+minio          | Docs: https://docs.min.io
+iceberg-rest   | 2024-09-22T15:04:26.367 INFO  [org.apache.iceberg.rest.RESTCatalogServer] - Creating catalog with properties: {jdbc.password=password, s3.endpoint=http://minio:9000, jdbc.user=user, io-impl=org.apache.iceberg.aws.s3.S3FileIO, catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog, jdbc.schema-version=V1, warehouse=s3://warehouse/, uri=jdbc:sqlite:file:/tmp/iceberg_rest_mode=memory}
+iceberg-rest   | 2024-09-22T15:04:26.396 INFO  [org.apache.iceberg.CatalogUtil] - Loading custom FileIO implementation: org.apache.iceberg.aws.s3.S3FileIO
+iceberg-rest   | 2024-09-22T15:04:26.529 INFO  [org.eclipse.jetty.util.log] - Logging initialized @273ms to org.eclipse.jetty.util.log.Slf4jLog
+iceberg-rest   | 2024-09-22T15:04:26.552 INFO  [org.eclipse.jetty.server.Server] - jetty-9.4.51.v20230217; built: 2023-02-17T08:19:37.309Z; git: b45c405e4544384de066f814ed42ae3dceacdd49; jvm 17.0.10+7-LTS
+iceberg-rest   | 2024-09-22T15:04:26.559 INFO  [org.eclipse.jetty.server.handler.ContextHandler] - Started o.e.j.s.ServletContextHandler@37858383{/,null,AVAILABLE}
+iceberg-rest   | 2024-09-22T15:04:26.565 INFO  [org.eclipse.jetty.server.AbstractConnector] - Started ServerConnector@158a8276{HTTP/1.1, (http/1.1)}{0.0.0.0:8181}
+iceberg-rest   | 2024-09-22T15:04:26.565 INFO  [org.eclipse.jetty.server.Server] - Started @309ms
+mc             | Added `minio` successfully.
+mc             | mc: <ERROR> Failed to remove `minio/warehouse` recursively. The specified bucket does not exist
+mc             | Bucket created successfully `minio/warehouse`.
+mc             | mc: Please use 'mc anonymous'
+Gracefully stopping... (press Ctrl+C again to force)
+Error response from daemon: error while creating mount source path '/***/apache-iceberg-101-ja/notebooks': chown /***/apache-iceberg-101-ja/notebooks: permission denied
 
-[+] Running 3/3
- ✘ minio Error Get "https://registry-1.docker.io/v2/": dial tcp: lookup regist...             20.0s
- ✘ mc Error    context canceled                                                               20.0s
- ✘ rest Error  context canceled                                                               20.0s
-Error response from daemon: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io on
+
 ```
 
 以下のようなJupyterベースのコンテンツを通じてIcebergの機能と仕組みが学べます。  
