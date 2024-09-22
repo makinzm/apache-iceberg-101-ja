@@ -4,7 +4,8 @@
 ## ハンズオン概要
 これからApache Icebergを学びたい人向けの実践的なハンズオンです。コンテナが動く端末が1台あれば始められます。
 ```shell
-docker-compose up --build
+docker compose up --build
+# Failed: https://github.com/lawofcycles/apache-iceberg-101-ja/issues/2
 ```
 
 以下のようなJupyterベースのコンテンツを通じてIcebergの機能と仕組みが学べます。  
