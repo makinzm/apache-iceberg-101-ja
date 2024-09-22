@@ -6,6 +6,18 @@
 ```shell
 docker compose up --build
 # Failed: https://github.com/lawofcycles/apache-iceberg-101-ja/issues/2
+
+[+] Running 1/1
+ ✔ Network apache-iceberg-101-ja_iceberg_net  C...                                             0.1s
+ ⠋ Container iceberg-rest                     Creating                                         0.0s
+ ⠋ Container minio                            Creating                                         0.0s
+Error response from daemon: No such image: minio/minio:latest
+
+[+] Running 3/3
+ ✘ minio Error Get "https://registry-1.docker.io/v2/": dial tcp: lookup regist...             20.0s
+ ✘ mc Error    context canceled                                                               20.0s
+ ✘ rest Error  context canceled                                                               20.0s
+Error response from daemon: Get "https://registry-1.docker.io/v2/": dial tcp: lookup registry-1.docker.io on
 ```
 
 以下のようなJupyterベースのコンテンツを通じてIcebergの機能と仕組みが学べます。  
